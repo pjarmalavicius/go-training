@@ -1,0 +1,64 @@
+version: "2"
+run:
+  tests: false
+linters:
+  enable:
+    - bodyclose
+    - copyloopvar
+    - goconst
+    - godot
+    - grouper
+    - misspell
+    - sloglint
+    - staticcheck
+    - gocritic
+    - unparam
+    - wsl_v5
+  settings:
+    staticcheck:
+      checks:
+        - ST1003
+        - SA1003
+    gocritic:
+      enable-all: true
+    goconst:
+      min-occurrences: 2
+    grouper:
+      type-require-grouping: true
+    misspell:
+      locale: US
+      ignore-rules:
+        - fulfilment_service_type
+        - fulfilment
+    sloglint:
+      attr-only: true
+      no-global: all
+      context: all
+      key-naming-case: snake
+    wsl_v5:
+      allow-first-in-block: true
+      allow-whole-block: false
+      branch-max-lines: 2
+      enable:
+        - err
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

@@ -1,0 +1,272 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "panels": [],
+      "title": "Memory",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-pyroscope-datasource",
+        "uid": "pyroscope"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "options": {},
+      "pluginVersion": "11.6.1",
+      "targets": [
+        {
+          "groupBy": [],
+          "labelSelector": "{service_name=\"test-app\"}",
+          "profileTypeId": "memory:inuse_space:bytes:space:bytes",
+          "queryType": "profile",
+          "refId": "A",
+          "spanSelector": []
+        }
+      ],
+      "title": "inuse_space",
+      "type": "flamegraph"
+    },
+    {
+      "datasource": {
+        "type": "grafana-pyroscope-datasource",
+        "uid": "pyroscope"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 9,
+      "options": {},
+      "pluginVersion": "11.6.1",
+      "targets": [
+        {
+          "groupBy": [],
+          "labelSelector": "{service_name=\"test-app\"}",
+          "profileTypeId": "memory:alloc_space:bytes:space:bytes",
+          "queryType": "profile",
+          "refId": "A",
+          "spanSelector": []
+        }
+      ],
+      "title": "alloc_space",
+      "type": "flamegraph"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 6,
+      "panels": [
+        {
+          "datasource": {
+            "type": "phlare",
+            "uid": "pyroscope"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 0,
+            "y": 54
+          },
+          "id": 1,
+          "options": {},
+          "pluginVersion": "11.6.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "phlare",
+                "uid": "pyroscope"
+              },
+              "groupBy": [],
+              "labelSelector": "{service_name=\"test-app\"}",
+              "profileTypeId": "process_cpu:cpu:nanoseconds:cpu:nanoseconds",
+              "queryType": "profile",
+              "refId": "A",
+              "spanSelector": []
+            }
+          ],
+          "title": "process_cpu",
+          "type": "flamegraph"
+        },
+        {
+          "datasource": {
+            "type": "grafana-pyroscope-datasource",
+            "uid": "pyroscope"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 12,
+            "y": 54
+          },
+          "id": 3,
+          "options": {},
+          "pluginVersion": "11.6.1",
+          "targets": [
+            {
+              "groupBy": [],
+              "labelSelector": "{service_name=\"test-app\"}",
+              "profileTypeId": "process_cpu:samples:count:cpu:nanoseconds",
+              "queryType": "profile",
+              "refId": "A",
+              "spanSelector": []
+            }
+          ],
+          "title": "process_cpu (samples)",
+          "type": "flamegraph"
+        }
+      ],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 5,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-pyroscope-datasource",
+            "uid": "pyroscope"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "id": 2,
+          "options": {},
+          "pluginVersion": "11.6.1",
+          "targets": [
+            {
+              "groupBy": [],
+              "labelSelector": "{service_name=\"test-app\"}",
+              "profileTypeId": "HEAP:inuse_space:bytes:space:bytes",
+              "queryType": "profile",
+              "refId": "A",
+              "spanSelector": []
+            }
+          ],
+          "title": "inuse_space (HEAP)",
+          "type": "flamegraph"
+        },
+        {
+          "datasource": {
+            "type": "grafana-pyroscope-datasource",
+            "uid": "pyroscope"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "id": 4,
+          "options": {},
+          "pluginVersion": "11.6.1",
+          "targets": [
+            {
+              "groupBy": [],
+              "labelSelector": "{service_name=\"test-app\"}",
+              "profileTypeId": "HEAP:alloc_space:bytes:space:bytes",
+              "queryType": "profile",
+              "refId": "A",
+              "spanSelector": []
+            }
+          ],
+          "title": "HEAP alloc_space",
+          "type": "flamegraph"
+        }
+      ],
+      "title": "HEAP",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "main",
+  "uid": "65gjqY3Mk",
+  "version": 1
+}

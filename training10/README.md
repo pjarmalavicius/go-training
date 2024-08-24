@@ -1,0 +1,6 @@
+# Benchmarking
+
+```
+go test -bench=.
+```
+

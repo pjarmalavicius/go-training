@@ -1,0 +1,35 @@
+logging {
+  level = "debug"
+  format = "logfmt"
+}
+
+pyroscope.write "example" {
+  // Send metrics to a locally running Pyroscope instance.
+  endpoint {
+    url = "http://pyroscope:4040"
+  }
+  external_labels = {
+    "env" = "example",
+  }
+}
+
+pyroscope.scrape "default" {
+  targets = [
+    {"__address__" = "host.docker.internal:6060", "service_name"="test-app"},
+  ]
+  forward_to = [pyroscope.write.example.receiver]
+  profiling_config {
+    profile.goroutine {
+      enabled = true
+      path = "/debug/pprof/goroutine"
+    }
+    profile.custom "HEAP" {
+      enabled = true
+      path = "/debug/pprof/heap"
+    }
+    profile.process_cpu {
+      enabled = true
+      path = "/debug/pprof/profile"
+    }
+  }
+}
